@@ -81,8 +81,9 @@ function App() {
   return (
     <main>
       <h1>Tienda digitaloncy</h1>
+
       <input
-        name="text"
+        name="search"
         placeholder="tv"
         type="text"
         value={inputValue}
@@ -106,7 +107,10 @@ function App() {
               <span>{formatPricesAR(product.price)}</span>
               <div className="wrapper_checkbox">
                 <input
+                  aria-label={`${product.title} favorites`}
                   checked={favorite.has(product.id)}
+                  id={`favorite-${product.id}`}
+                  name={`favorite-${product.id}`}
                   type="checkbox"
                   onChange={() => handleChangeFavorite(product.id)}
                 />
